@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- Dependancy injection by using getter and setter methods ie. properties tags -->
+	
+	<bean id="std" class="com.prowings.Student">
+		<property name="studentId" value="100" />
+		<property name="name" value="Ram" />
+		<property name="hobby" value="Archary" />
+		<property name="add" ref="address" />
+	</bean>
+
+	<bean id="address" class="com.prowings.Address">
+		<property name="addressId" value="10" />
+		<property name="city" value="Ayodhya" />
+	</bean>
+	
+	<!-- Dependancy injection by using constructor ie. constructor-args tags -->
+	
+	<bean id="emp" class="com.prowings.Employee">
+		<constructor-arg name="empId" value="10" type="int" index="0"/>
+		<constructor-arg name="name" value="Ram" type="String" index="1"/>
+		<constructor-arg ref="prof"/>
+	</bean>
+	
+	<bean id="prof" class="com.prowings.Profile">
+		<constructor-arg name="city" value="Ayodhya" type="String" index="0"/>
+		<constructor-arg name="salary" value="10000" type="int" index="1"/>
+		<constructor-arg name="department" value="Hr" type="String" index="2"/>
+	</bean>
+
+</beans>
+
+   
